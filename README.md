@@ -36,7 +36,10 @@ Or install it yourself as:
   All
   Exit
 3. Based on selection display ordered list of scores
-4.
+4. Select game number to check game details or select Home to go to first screen or Exit
+5. If game number is selected display game details(events)
+6. Want to see more? (Y/N) if Yes, taken to main screen, No exit
+
 
 
 TODO: Write usage instructions here
