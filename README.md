@@ -35,7 +35,8 @@ Or install it yourself as:
   Top 5 Leagues (England-Premier League, Spain-LaLiga, Germany-Bundesliga, Italy-Serie A, France-Ligue 1)
   All
   Exit
-3.  
+3. Based on selection display ordered list of scores
+4.
 
 
 TODO: Write usage instructions here
