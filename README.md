@@ -32,7 +32,6 @@ Or install it yourself as:
   Germany
   Italy
   France
-  Top 5 Leagues (England-Premier League, Spain-LaLiga, Germany-Bundesliga, Italy-Serie A, France-Ligue 1)
   All
   Exit
 3. Based on selection display ordered list of scores

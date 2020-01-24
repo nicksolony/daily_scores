@@ -1,2 +1,7 @@
-require "daily_scores/version"
-require "daily_scores/cli"
+require_relative "daily_scores/version"
+require_relative "daily_scores/cli"
+
+module DailyScores
+  class Error < StandardError; end
+  # Your code goes here...
+end
