@@ -37,44 +37,67 @@ Welcome to Daily Scores!
       #case @input
       #when "1"
       if @country_input == "start"
-        list_option
+        list_options
       elsif @country_input.to_i <= DailyScores::Country.all.size && @country_input.to_i !=0
-        puts "In #{DailyScores::Country.all[@country_input.to_i-1].name} following leagues had games played today"
-        @leagues = DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
-        #league_menu
+        league_menu
       else
-        puts "I didn't understand you, please select an option 1-8"
+        puts "I didn't understand you, please proceed with selection"
       end
     end
   end
 
   def league_menu
-      @league_input = 0
-      @league_input = gets.strip
-      case @input
-      when "1"
-        puts "Select game that was played, select 0 for start menu and X for exit"
-        case game_input
-          when "1"
-            puts "Leicester City 4 - 1 West Ham United - details"
-          when "2"
-            puts "Tottenham Hotspur 2 - 1 Norwich City details"
-          when "3"
-            puts "Manchester United 0 - 2 Burnley details"
-          when "0"
-            list_options
-          when "X"
-            finish
-          else
-            puts "I didn't understand you, please select game number, 0 for start menu and X for exit"
-          end
-        else
-          puts "no games were played today"
-        end
-
-      end
-  def finish
-    puts "It was a great game! Thank you!"
-    exit
+    puts "In #{DailyScores::Country.all[@country_input.to_i-1].name} following leagues had games played today"
+    @leagues = DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
+    scores
   end
+
+  def scores
+    @league_input = 0
+    while @league_input != "exit" do
+      puts "Select league to view (Start for Start Menue, Exit to finish)"
+      @league_input = gets.strip.downcase
+      #case @input
+      #when "1"
+      if @league_input == "start"
+        list_options
+      elsif @league_input.to_i <= DailyScores::Leagues.all.size && @league_input.to_i !=0
+        @games = DailyScores::League.league_games_numbered_list(@league_input.to_i-1)
+      else
+        puts "I didn't understand you, please proceed with selection"
+      end
+    end
+  end
+
+
+
+  #def not_done
+  #  @league_input = 0
+  #  @league_input = gets.strip
+  #  case @input
+  #  when "1"
+  #    puts "Select game that was played, select 0 for start menu and X for exit"
+  #    case game_input
+  #      when "1"
+  #        puts "Leicester City 4 - 1 West Ham United - details"
+  #      when "2"
+  #        puts "Tottenham Hotspur 2 - 1 Norwich City details"
+  #      when "3"
+  #        puts "Manchester United 0 - 2 Burnley details"
+  #      when "0"
+  #        list_options
+  #      when "X"
+  #        finish
+  #      else
+  #        puts "I didn't understand you, please select game number, 0 for start menu and X for exit"
+  #      end
+  #    else
+  #      puts "no games were played today"
+  #    end
+
+  #  end
+def finish
+  puts "It was a great game! Thank you!"
+  exit
 end
+  end

@@ -37,4 +37,19 @@ class DailyScores::Country
       }
     end
 
+  def add_league(league)
+   if league.country == nil
+     league.country = self
+   else
+     league.country
+   end
+
+   if @leagues.include?(league)
+   else
+     @leagues << league
+   end
+ end
+
+
+
 end
