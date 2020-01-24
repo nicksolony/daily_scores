@@ -14,6 +14,11 @@ class DailyScores::Country
     @@all
   end
 
+  def self.reset_all
+    @all = []
+  end
+
+
   def add_league(league)
    if league.country == nil
      league.country = self
@@ -31,6 +36,7 @@ class DailyScores::Country
 
 
   def self.numbered_list
+    self.scrape
     england = self.new
     england.name = "England"
     #england.leagues = ["PREMIER LEAGUE","FA Cup"]
@@ -64,6 +70,14 @@ class DailyScores::Country
       }
     end
 
+    def self.scrape
+      self.reset_all
+      doc = Nokogiri::HTML(open("https://android.livescore.com/"))
+      name = doc.css("div.row row-tall").each {|country|
+      }
+      binding.pry
+
+    end
 
 
 end

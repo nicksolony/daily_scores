@@ -1,8 +1,8 @@
+require 'pry'
 class DailyScores::Cli
 
   def call
     list_options
-    #DailyScores::Scrapper:scrape
     main_menu
     finish
   end
@@ -25,10 +25,9 @@ Welcome to Daily Scores!
 #7. Start menu
 #8. Exit
 
-
+    
     @countries = DailyScores::Country.numbered_list
-    doc = Nokogiri::HTML(open("https://www.livescore.com/"))
-    binding.pry
+
 
   end
 
