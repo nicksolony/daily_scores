@@ -1,6 +1,11 @@
 class DailyScores::Country
-  @@all = ["england","italy","spain"]
+  @@all = []
 
+  attr_accessor :name, :leagues
+
+  def initialize
+    @@all << self
+  end
 
 
 
@@ -9,9 +14,27 @@ class DailyScores::Country
   end
 
   def self.numbered_list
-    ["england","italy","spain"].each_with_index { |country,i|
-      puts "#{i+1}. #{country}"
+    england = self.new
+    england.name = "England"
+    england.leagues = ["PREMIER LEAGUE","FA Cup"]
+
+    italy = self.new
+    italy.name = "Italy"
+    italy.leagues = ["SERIE C:: GROUP B"]
+
+    spain = self.new
+    spain.name = "Spain"
+    spain.leagues = ["COPA DEL REY"]
+
+    self.all.each_with_index { |country,i|
+      puts "#{i+1}. #{country.name}"
     }
-  end
+    end
+
+    def self.leagues_numbered_list(country_index)
+      self.all[country_index].leagues.each_with_index {|league,i|
+        puts "#{i+1}. #{league}"
+      }
+    end
 
 end

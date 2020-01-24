@@ -30,38 +30,27 @@ Welcome to Daily Scores!
   end
 
   def main_menu
-    @input = 0
-    while @input != "exit" do
+    @country_input = 0
+    while @country_input != "exit" do
       puts "Enter your selection(Start for Start Menue, Exit to finish)"
-      @input = gets.strip.downcase
+      @country_input = gets.strip.downcase
       #case @input
       #when "1"
-      if @input == "start"
-      list_options
-    #    puts "1. Leicester City 4 - 1 West Ham United"
-    #    puts "2. Tottenham Hotspur 2 - 1 Norwich City"
-    #    puts "3. Manchester United 0 - 2 Burnley"
-    #    game_menu
-    #  when "2"
-    #    puts "following spanish teams played today"
-    #    game_menu
-    #  when "3"
-    #    puts "following german teams played today"
-    #  when "4"
-    #    puts "following itallian teams played today"
-    #  when "5"
-    #    puts "following german teams played today"
-    #  when "6"
-    #    puts "following games happened today"
-  elsif @input.to_i <= DailyScores::Country.all.size && @input.to_i !=0
-        puts "following teams played in #{DailyScores::Country.all[@input.to_i-1]} today"
+      if @country_input == "start"
+        list_option
+      elsif @country_input.to_i <= DailyScores::Country.all.size && @country_input.to_i !=0
+        puts "In #{DailyScores::Country.all[@country_input.to_i-1].name} following leagues had games played today"
+        @leagues = DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
+        #league_menu
       else
         puts "I didn't understand you, please select an option 1-8"
       end
+    end
   end
-end
-def game_menu
-      game_input = gets.strip
+
+  def league_menu
+      @league_input = 0
+      @league_input = gets.strip
       case @input
       when "1"
         puts "Select game that was played, select 0 for start menu and X for exit"
@@ -83,7 +72,7 @@ def game_menu
           puts "no games were played today"
         end
 
-end
+      end
   def finish
     puts "It was a great game! Thank you!"
     exit
