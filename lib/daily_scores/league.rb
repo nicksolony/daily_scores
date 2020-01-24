@@ -1,4 +1,4 @@
-class DailyScores::Leagues
+class DailyScores::League
   @@all = []
 
   attr_accessor :league_name, :games, :country
@@ -20,15 +20,7 @@ class DailyScores::Leagues
 
 
   def self.numbered_games_list
-    epl = self.new
-    epl.name = "PREMIER LEAGUE"
-    epl.games = ["Wolverhampton Wanderers 1 - 2 Liverpool","asdasdas"]
-    epl.country = england
 
-    fa_cup = self.new
-    fa_cup.name = "FA Cup"
-    fa_cup.games = ["Tranmere Rovers 2 - 1 Watford"]
-    fa_cup.country = england
 
     #italy = self.new
     #italy.name = "Italy"
@@ -39,14 +31,14 @@ class DailyScores::Leagues
     #spain.leagues = ["COPA DEL REY"]
 
     self.all.each_with_index { |league,i|
-      puts "#{i+1}. #{league.name}"
+      puts "#{i+1}. #{league.league_name}"
     }
     end
 
     def self.league_games_numbered_list(league_index)
-    binding.pry
+
       self.all[league_index].games.each_with_index {|game,i|
-        puts "#{i+1}. #{game}"
+        puts "#{i+1}. #{game}"  
       }
     end
 

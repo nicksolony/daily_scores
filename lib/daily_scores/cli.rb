@@ -32,7 +32,7 @@ Welcome to Daily Scores!
   def main_menu
     @country_input = 0
     while @country_input != "exit" do
-      puts "Enter your selection(Start for Start Menue, Exit to finish)"
+      puts "Enter your selection(Start for Start Menu, Exit to finish)"
       @country_input = gets.strip.downcase
       #case @input
       #when "1"
@@ -49,24 +49,30 @@ Welcome to Daily Scores!
   def league_menu
     puts "In #{DailyScores::Country.all[@country_input.to_i-1].name} following leagues had games played today"
     @leagues = DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
+    puts ""
     scores
   end
 
   def scores
     @league_input = 0
-    while @league_input != "exit" do
-      puts "Select league to view (Start for Start Menue, Exit to finish)"
+    while @league_input != "back" do
+      puts "Select league to view or Back to go to main menu)"
+      @leagues = DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
       @league_input = gets.strip.downcase
       #case @input
       #when "1"
-      if @league_input == "start"
-        list_options
-      elsif @league_input.to_i <= DailyScores::Leagues.all.size && @league_input.to_i !=0
+      if @league_input.to_i <= DailyScores::League.all.size && @league_input.to_i !=0
+        puts "#{DailyScores::League.all[@league_input.to_i-1].league_name}"
+        #.league_name
         @games = DailyScores::League.league_games_numbered_list(@league_input.to_i-1)
+
+        puts ""
+
       else
         puts "I didn't understand you, please proceed with selection"
       end
     end
+    list_options
   end
 
 
