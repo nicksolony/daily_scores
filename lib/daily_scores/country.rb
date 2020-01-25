@@ -72,10 +72,12 @@ class DailyScores::Country
 
     def self.scrape
       self.reset_all
-      doc = Nokogiri::HTML(open("https://android.livescore.com/"))
-      name = doc.css("div.row row-tall").each {|country|
+      doc = Nokogiri::HTML(open("https://www.scorespro.com"))
+      name = doc.css("div.comp_title__counter").each {|country|
       }
       binding.pry
+      name = doc.search("div.comp_title__counter").first.text.split(":")[0]
+
 
     end
 
