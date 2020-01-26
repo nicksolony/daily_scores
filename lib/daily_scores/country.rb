@@ -46,28 +46,6 @@ class DailyScores::Country
 
   def self.numbered_list
     self.scrape
-    #england = self.new
-    #england.name = "England"
-    ##england.leagues = ["PREMIER LEAGUE","FA Cup"]
-
-    #italy = self.new
-    #italy.name = "Italy"
-    #italy.leagues = ["SERIE C:: GROUP B"]
-
-    #spain = self.new
-    #spain.name = "Spain"
-    #spain.leagues = ["COPA DEL REY"]
-
-    #epl = DailyScores::League.new
-    #epl.league_name = "PREMIER LEAGUE"
-    #epl.games = ["Wolverhampton Wanderers 1 - 2 Liverpool","asdasdas"]
-    #epl.country = england
-
-    #fa_cup = DailyScores::League.new
-    #fa_cup.league_name = "FA Cup"
-    #fa_cup.games = ["Tranmere Rovers 2 - 1 Watford"]
-    #fa_cup.country = england
-
     self.all.each_with_index { |country,i|
       puts "#{i+1}. #{country.name}"
     }
@@ -127,7 +105,10 @@ class DailyScores::Country
                       row.css("td[@class='score cshas_ended']").text
                     end
         game = "#{home_team} #{score} #{away_team}"
+
+        if game != "  "
         league.games << game
+        end
         }
         }
 

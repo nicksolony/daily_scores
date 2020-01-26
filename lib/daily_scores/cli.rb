@@ -2,9 +2,22 @@ require 'pry'
 class DailyScores::Cli
 
   def call
-    list_options
+    list_options_new
     main_menu
     finish
+  end
+
+  def list_options_new
+    puts <<-DOC
+Welcome to Daily Scores!
+
+============================================================
+
+    DOC
+    DailyScores::Country.reset_all
+    @countries = DailyScores::Country.numbered_list
+
+
   end
 
   def list_options
@@ -14,19 +27,9 @@ Welcome to Daily Scores!
 ============================================================
 
     DOC
-#Please select a country to check scores from the list below
-#(1-8):
-#1. England
-#2. Spain
-#3. Germany
-#4. Italy
-#5. France
-#6. All
-#7. Start menu
-#8. Exit
-
-    DailyScores::Country.reset_all
-    @countries = DailyScores::Country.numbered_list
+    #DailyScores::Country.reset_all
+    @countries = DailyScores::Country.all.each_with_index {|country,i|
+      puts"#{i+1}. #{country.name}"}
 
 
   end
@@ -55,19 +58,21 @@ Welcome to Daily Scores!
   end
 
   def scores
-    @league_input = 0
+    @league_input = ""
     while @league_input != "back" do
       puts "Select league to view or Back to go to main menu)"
+
       DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
       @league_input = gets.strip.downcase
-      #case @input
-      #when "1"
+
       if @league_input.to_i <= DailyScores::League.all.size && @league_input.to_i !=0
-        puts "#{DailyScores::League.all[@league_input.to_i-1].league_name}"
-        #.league_name
+
+        puts "#{DailyScores::Country.all[@country_input.to_i-1].name} #{DailyScores::League.all[@league_input.to_i-1].league_name}"
+
         DailyScores::League.league_games_numbered_list(@league_input.to_i-1)
 
         puts ""
+      elsif @league_input == "back"
 
       else
         puts "I didn't understand you, please proceed with selection"
