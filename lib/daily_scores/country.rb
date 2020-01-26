@@ -104,12 +104,18 @@ class DailyScores::Country
                     else
                       row.css("td[@class='score cshas_ended']").text
                     end
-        game = "#{home_team} #{score} #{away_team}"
+        status = if row.css("td[@class='status']").text == ""
+                  "Not started"
+                else
+                  row.css("td[@class='status']").text
+                end
+        game = "#{status}: #{home_team} #{score} #{away_team}"
 
-        if game != "  "
+        if game != "Not started:   "
         league.games << game
         end
         }
+
         }
 
 
