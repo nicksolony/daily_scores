@@ -61,15 +61,20 @@ Welcome to Daily Scores!
     @league_input = ""
     while @league_input != "back" do
       puts "Select league to view or Back to go to main menu)"
-
-      DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
+      country = DailyScores::Country.all[@country_input.to_i-1]
+      country_leagues = DailyScores::Country.leagues_numbered_list(@country_input.to_i-1)
       @league_input = gets.strip.downcase
-
+      league = DailyScores::Country.all[@country_input.to_i-1].leagues[@league_input.to_i-1]
+      #binding.pry
       if @league_input.to_i <= DailyScores::League.all.size && @league_input.to_i !=0
 
-        puts "#{DailyScores::Country.all[@country_input.to_i-1].name} #{DailyScores::League.all[@league_input.to_i-1].league_name}"
+        puts "#{country.name} #{league.league_name}"
 
-        DailyScores::League.league_games_numbered_list(@league_input.to_i-1)
+      #  DailyScores::League.league_games_numbered_list(
+      #    #@country_input.to_i-1,
+      #    @league_input.to_i-1)
+        league.league_games_numbered_list
+
 
         puts ""
       elsif @league_input == "back"

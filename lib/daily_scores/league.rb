@@ -29,13 +29,13 @@ class DailyScores::League
   end
 
 
-  def self.numbered_league_list
+  def self.numbered_games_list
 
 
     self.all.each_with_index { |league,i|
       puts "#{i+1}. #{league.league_name}"
     }
-  end
+    end
 
     def self.league_games_numbered_list(league_index)
 
@@ -43,5 +43,14 @@ class DailyScores::League
         puts "#{i+1}. #{game}"
       }
     end
+
+    def league_games_numbered_list
+
+        @games.each_with_index {|game,i|
+        puts "#{i+1}. #{game}"
+      }
+    end
+
+
 
 end
