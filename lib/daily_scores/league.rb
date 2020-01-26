@@ -6,6 +6,7 @@ class DailyScores::League
   def initialize(league_name)
     @league_name = league_name
     @@all << self
+    @games=[]
   end
 
   def save
@@ -28,21 +29,13 @@ class DailyScores::League
   end
 
 
-  def self.numbered_games_list
+  def self.numbered_league_list
 
-
-    #italy = self.new
-    #italy.name = "Italy"
-    #italy.leagues = ["SERIE C:: GROUP B"]
-
-    #spain = self.new
-    #spain.name = "Spain"
-    #spain.leagues = ["COPA DEL REY"]
 
     self.all.each_with_index { |league,i|
       puts "#{i+1}. #{league.league_name}"
     }
-    end
+  end
 
     def self.league_games_numbered_list(league_index)
 
