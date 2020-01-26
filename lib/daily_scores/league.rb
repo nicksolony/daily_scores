@@ -3,10 +3,19 @@ class DailyScores::League
 
   attr_accessor :league_name, :games, :country
 
-  def initialize
+  def initialize(league_name)
+    @league_name = league_name
     @@all << self
   end
 
+  def save
+    @@all << self
+  end
+
+  def self.create(league_name)
+    league = new(league_name)
+    league.save
+  end
 
 
   def self.all
@@ -38,7 +47,7 @@ class DailyScores::League
     def self.league_games_numbered_list(league_index)
 
       self.all[league_index].games.each_with_index {|game,i|
-        puts "#{i+1}. #{game}"  
+        puts "#{i+1}. #{game}"
       }
     end
 

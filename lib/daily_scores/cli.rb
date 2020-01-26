@@ -25,7 +25,7 @@ Welcome to Daily Scores!
 #7. Start menu
 #8. Exit
 
-    
+    DailyScores::Country.reset_all
     @countries = DailyScores::Country.numbered_list
 
 
