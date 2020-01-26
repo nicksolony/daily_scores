@@ -73,13 +73,34 @@ class DailyScores::Country
     def self.scrape
       self.reset_all
       doc = Nokogiri::HTML(open("https://www.scorespro.com"))
+      main = doc.css("[id=mainfeed]")
       name = doc.css("div.comp_title__counter").each {|country|
+
       }
       binding.pry
-      name = doc.search("div.comp_title__counter").first.text.split(":")[0]
-
+      name = main.css("div.comp_title__counter")[0].text.split(":")[0]
+      league_name = main.css("div.comp_title__counter")[0].text.split(": ")[1].split(" (")[0]
+      #away_team = main.css("table tbody tr td[@class='away uc']").first.text
+      #away_team = main.css("table tbody tr td[@class.start_with?('away')]").first.text
+      row = main.css("table tbody tr")[0]
+      away_team = if row.css("td[@class='away winteam uc'] a").text == ""
+                    row.css("td[@class='away uc'] a").text
+                  else
+                    row.css("td[@class='away winteam uc'] a").text
+                  end
+      home_team = if row.css("td[@class='home winteam uc'] a").text == ""
+                    row.css("td[@class='home uc'] a").text
+                  else
+                    row.css("td[@class='home winteam uc'] a").text
+                  end
+      score = if row.css("td[@class='score cshas_ended']").text == ""
+                    row.css("td[@class='score']").text
+                  else
+                    row.css("td[@class='score cshas_ended']").text
+                  end
+      game = "#{home_team} #{score} #{away_team}"
 
     end
-
+    #if game == "  "
 
 end
