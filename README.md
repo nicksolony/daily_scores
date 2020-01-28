@@ -1,10 +1,8 @@
 # DailyScores
 
-CLI Data Gem Portfolio Project - Check daily scores across leagues and display game details
+CLI Data Gem Portfolio Project - Check daily scores across leagues and display game scores
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/daily_scores`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This application scrapes data from https://www.scorespro.com/ and presents list of available countries. Upon country selection you can see a list of leagues played in that country and check scores for the specific league.
 
 ## Installation
 
@@ -26,22 +24,17 @@ Or install it yourself as:
 
 1. Welcome to Daily Scores!
   You can check daily Soccer scores from most Soccer leagues in the world.
-2. Please select a country to check scores from the list below:
-  England
-  Spain
-  Germany
-  Italy
-  France
-  All
-  Exit
-3. Based on selection display ordered list of scores
-4. Select game number to check game details or select Home to go to first screen or Exit
-5. If game number is selected display game details(events)
-6. Want to see more? (Y/N) if Yes, taken to main screen, No exit
-
-
-
-TODO: Write usage instructions here
+2. a) Select a country from a list of countries by entering corresponding country number.(e.g.
+      1. England
+      2. Spain
+      3. Germany
+      ...
+  Enter 1 to select England)
+  b) type start to reload list of countries
+  c) type exit to exit
+3. Based on the selection, you will receive a list of leagues played in the country
+4.  a) Select a league you would look to see a results for
+    b) type back to go back to main menu
 
 ## Development
 
