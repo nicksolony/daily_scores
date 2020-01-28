@@ -45,6 +45,7 @@ Welcome to Daily Scores!
         list_options
       elsif @country_input.to_i <= DailyScores::Country.all.size && @country_input.to_i !=0
         league_menu
+      elsif @country_input == "exit"
       else
         puts "I didn't understand you, please proceed with selection"
       end
@@ -114,7 +115,7 @@ Welcome to Daily Scores!
 
   #  end
 def finish
-  puts "It was a great game! Thank you!"
+  puts "It was a great game day! Thank you!"
   exit
 end
   end
