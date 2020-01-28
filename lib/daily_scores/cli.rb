@@ -66,7 +66,7 @@ Welcome to Daily Scores!
       @league_input = gets.strip.downcase
       league = DailyScores::Country.all[@country_input.to_i-1].leagues[@league_input.to_i-1]
       #binding.pry
-      if @league_input.to_i <= DailyScores::League.all.size && @league_input.to_i !=0
+      if @league_input.to_i <= DailyScores::Country.all[@country_input.to_i-1].leagues.size && @league_input.to_i !=0
 
         puts "#{country.name} #{league.league_name}"
 
