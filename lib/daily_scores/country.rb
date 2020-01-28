@@ -13,11 +13,11 @@ class DailyScores::Country
     @@all << self
   end
 
-  def self.create(name)
-    country = new(name)
-    country.save
-    country
-  end
+  #def self.create(name)
+  #  country = new(name)
+  #  country.save
+  #  country
+  #end
 
 
   def self.all
