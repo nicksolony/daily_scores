@@ -2,6 +2,7 @@ require 'pry'
 class DailyScores::Cli
 
   def call
+    DailyScores::Scraper.scrape
     list_options_new
     main_menu
     finish
@@ -14,7 +15,7 @@ Welcome to Daily Scores!
 ============================================================
 
     DOC
-    DailyScores::Country.reset_all
+    #DailyScores::Country.reset_all
     @countries = DailyScores::Country.numbered_list
 
 
@@ -43,7 +44,7 @@ Welcome to Daily Scores!
       #when "1"
       if @country_input == "start"
         list_options
-      elsif @country_input.to_i <= DailyScores::Country.all.size && @country_input.to_i !=0
+      elsif @country_input.to_i <= DailyScores::Country.all.size && @country_input.to_i > 0
         league_menu
       elsif @country_input == "exit"
       else
