@@ -23,7 +23,7 @@ Or install it yourself as:
 ## Usage
 
 1. Welcome to Daily Scores!
-  You can check daily Soccer scores from most Soccer leagues in the world.
+  You can check daily Soccer scores from most Soccer leagues in the world, based on https://www.scorespro.com/.
 2. a) Select a country from a list of countries by entering corresponding country number.(e.g.
       1. England
       2. Spain
