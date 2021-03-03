@@ -28,17 +28,16 @@ This application scrapes data from https://www.scorespro.com/ and presents list 
 
 1. Welcome to Daily Scores!
   You can check daily Soccer scores from most Soccer leagues in the world, based on https://www.scorespro.com/.
-2. 1) Select a country from a list of countries by entering corresponding country number.(e.g.
+2. a) Select a country from a list of countries by entering corresponding country number.(e.g.
       1. England
       2. Spain
       3. Germany
-      ...
-  Enter 1 to select England
-  2) type start to reload list of countries
-  3) type exit to exit
+      ...Enter 1 to select England)
+  b) type start to reload list of countries
+  c) type exit to exit
 3. Based on the selection, you will receive a list of leagues played in the country
-4.  1) Select a league you would look to see a results for
-    2) type back to go back to main menu
+4.  a) Select a league you would look to see a results for
+    b) type back to go back to main menu
     
 ## Demo
 https://youtu.be/n263XMZw6to
