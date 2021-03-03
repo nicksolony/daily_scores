@@ -8,7 +8,7 @@ This application scrapes data from https://www.scorespro.com/ and presents list 
 
 
 1. Navigate to daily_scores folder in your terminal 
-    ```
+    ```ruby
     $ cd daily_scores
     ```
 2. Run bundle commmand
@@ -16,11 +16,11 @@ This application scrapes data from https://www.scorespro.com/ and presents list 
     $ bundle
     ```
 3. Navigate to bin directory
-    ```
+    ```ruby
     $ cd bin
     ```
 4. Run daily scores app
-    ```
+    ```ruby
     $ ruby daily_scores
     ```
 
