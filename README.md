@@ -6,14 +6,10 @@ This application scrapes data from https://www.scorespro.com/ and presents list 
 
 ## Installation
 
-Add this line to your application's Gemfile:
 
-```ruby
-gem 'daily_scores'
-```
-
-And then execute:
-
+1. Navigate to daily_scores folder in your terminal ```cd daily_scores```
+2. Run bundle commmand
+3. 
     $ bundle
 
 Or install it yourself as:
