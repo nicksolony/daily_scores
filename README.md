@@ -7,14 +7,14 @@ This application scrapes data from https://www.scorespro.com/ and presents list 
 ## Installation
 
 
-1. Navigate to daily_scores folder in your terminal ```cd daily_scores```
+1. Navigate to daily_scores folder in your terminal 
+    $ cd daily_scores
 2. Run bundle commmand
-3. 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install daily_scores
+3. Navigate to bin directory
+    $ cd bin
+4. Run daily scores app
+    $ ruby daily_scores
 
 ## Usage
 
